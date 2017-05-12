@@ -42,7 +42,7 @@ You will be fully capable of doing this homework by the end of Saturday's class.
 
 4. Display the following on the page:
 
-5. Press any key to get started!
+<!-- 5. Press any key to get started! -->
 
 6. Wins: (# of times user guessed the word correctly).
 

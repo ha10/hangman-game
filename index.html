@@ -7,9 +7,36 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-    <div id="theWord">
+    <div class="container">
+      <div class="top">
+        <h1>< hangcode \ ></h1>
+        <p>Turn your frustrations to muscle memory.</p>
+        <p id="get-started">Press any key to get started!</p>
+      </div>
+      <!-- current word -->
+      <div id="current-word">
+      </div>
+      <!-- current hint -->
+      <div>
+        <div>
+          <h4>Hint: <span id="current-hint"></span></h4>
+          <!-- <div id="current-hint">
 
+          </div> -->
+        </div>
+      </div>
+      <div id="guesses-left">
+
+      </div>
+      <div>
+        <h4>Wrong Guesses: <span id="wrong-guesses"></span></h4>
+      </div>
+      <div id="wins">
+        <h4>Wins:</h4>
+      </div>
     </div>
+
   </body>
   <script src="assets/js/game.js" charset="utf-8"></script>
+  <!-- <script src="assets/js/pseudocode.js" charset="utf-8"></script> -->
 </html>

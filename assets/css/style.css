@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#current-hint,
+#wrong-guesses {
+  font-size: 1em;
+  margin-top: 1em;
+  font-weight: 200;
+}
+
+#current-word {
+  font-size: 1.3em;
+}
+
+@media screen and (max-width:768px) {
+  .container {
+    width: 768px;
+  }
+}

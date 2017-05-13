@@ -111,15 +111,17 @@ function makeGuess (char) {
       wrongGuessesCount++;
       wrongGuesses.push(char);
       document.getElementById('wrong-guesses').innerHTML += char + " ";
+      guessesLeft--;
+      document.getElementById('guesses-left').innerHTML = guessesLeft;
       if (wrongGuessesCount > 8) {
         alert("better luck next time!");
-        newGame();
         userGuesses = [];
         wrongGuesses = [];
         wrongGuessesCount = 0;
-        guessesLeft--;
+        guessesLeft = 8;
         document.getElementById('wrong-guesses').innerHTML = " ";
-
+        document.getElementById('guesses-left').innerHTML = 8;
+        newGame();
       }
   }
   // insert into document
@@ -155,8 +157,10 @@ function checkScore () {
     userGuesses = [];
     wrongGuesses = [];
     wrongGuessesCount = 0;
+    guessesLeft = 8;
     document.getElementById('user-wins').innerHTML = userScore;
     document.getElementById('wrong-guesses').innerHTML = " ";
+    document.getElementById('guesses-left').innerHTML = "8";
     alert("winner! the word was " + currentWord + ".");
     setTimeout(newGame, 500);
   }

@@ -97,8 +97,39 @@ p {
   font-weight: 200;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:320px) {
   .container {
-    width: 768px;
+    width: 300px;
+    margin: auto 0;
+  }
+  .score-boxes > h4 {
+    background: #D3D5D2;
+    /*height: 30px;*/
+    /*position: relative;*/
+    top: 0;
+    margin: 0;
+    /*padding: 5px 0;*/
+    color: #4E534B;
+    font-weight: 200;
+  }
+  .one-third {
+    width: 100%;
+    position: relative;
+    float: left;
+    clear: both;
+    margin-left: 10%;
+  }
+  #current-word,
+  #current-hint {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .heading {
+    margin: 0;
+    /*padding: 0;*/
+  }
+  p {
+    font-size: .9em;
   }
 }

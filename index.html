@@ -6,7 +6,7 @@
     <title>Hangman</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
@@ -16,9 +16,9 @@
       <p id="get-started">Press any key to get started!</p>
     </div>
     <div class="container">
-      <div id="logo">
+      <!-- <div id="logo">
           <img src="assets/img/hanger.svg" alt="">
-      </div>
+      </div> -->
       <!-- current word -->
       <div id="current-word">
       </div>
@@ -28,16 +28,16 @@
           <h4>Hint: <span id="current-hint"></span></h4>
         </div>
       </div>
-      <div class="keeping-score col-md-12">
-        <div class="col-md-4 alert alert-warning score-boxes">
+      <div class="keeping-score">
+        <div class="one-third score-boxes">
           <h4>Guesses Left: </h4>
           <p id="guesses-left"></p>
         </div>
-        <div class="col-md-4 alert alert-danger score-boxes">
+        <div class="one-third score-boxes">
           <h4>Wrong Guesses:</h4>
           <p id="wrong-guesses"></p>
         </div>
-        <div class="col-md-4 alert alert-success score-boxes" id="wins">
+        <div class="one-third score-boxes">
           <h4>Wins:</h4>
           <p id="user-wins">0</p>
         </div>

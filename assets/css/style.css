@@ -4,11 +4,18 @@
   box-sizing: border-box;
 }
 body {
-  /*font-family: 'Share Tech Mono', monospace;
-  background-color: #1B1C1D;
-  background-image: url("../../assets/img/codecodecode.png");
-  color: white;*/
-
+  background:
+    linear-gradient(
+      rgba(27, 28, 29, .8),
+      rgba(27, 28, 29, .8)
+    ),
+    /* bottom, image */
+    url("../../assets/img/frustrated.jpg");
+    background-size: cover;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #logo {
@@ -26,43 +33,68 @@ body {
 
 .heading {
   text-align: center;
+  margin-top: 5em;
+  font-weight: 400;
+  font-size: 1.2em;
 }
-/*#guesses-left,
+
+.heading h1 {
+  font-weight: 400;
+  font-size: 2.3em;
+  margin-bottom: 1em;
+}
+#guesses-left,
 #wrong-guesses,
-#wins {
-  height: 100%;
+#user-wins {
+  padding-top: 20px;
 }
-.keeping-score {
+/*.keeping-score {
   height: 200px;
 }*/
 
 
 /*#current-hint,*/
-.current-hint {
+.current-hint,
+#current-hint {
     margin: 2em 0 2em 0;
+    font-weight: 100;
 }
 
 .score-boxes {
   height: 100px;
   margin-right: 0px;
   border: 1px solid darkgrey;
+  background: #4E534B;
 
 }
 
 #current-word {
-  font-size: 2.5em;
+  font-size: 2.9em;
+  margin: 1em 0;
 }
 
 .keeping-score {
   width: 100%;
 }
 .one-third {
-  width: 30%;
+  width: 20%;
   float: left;
+  margin-left: 10%;
 }
 
 p {
   font-size: 1.2em;
+}
+
+.score-boxes > h4 {
+  background: #D3D5D2;
+  height: 30px;
+  position: relative;
+  top: 0;
+  margin: 0;
+  padding: 5px 0;
+  color: #4E534B;
+  font-weight: 200;
 }
 
 @media screen and (max-width:768px) {

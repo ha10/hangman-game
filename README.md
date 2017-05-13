@@ -1,5 +1,3 @@
-# Week 3 Assignment
-
 ### Overview
 
 In this assignment, you'll create one of two possible computer games: Hangman or Psychic. These apps will run in the browser, and feature dynamically updated HTML powered by your JavaScript code.
@@ -52,7 +50,7 @@ You will be fully capable of doing this homework by the end of Saturday's class.
 
 7. Number of Guesses Remaining: (# of guesses remaining for the user).
 
-8. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`).
+<!-- 8. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`). -->
 
 9. After the user wins/loses the game should automatically choose another word and make the user play it.
 

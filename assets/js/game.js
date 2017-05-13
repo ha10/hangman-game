@@ -11,6 +11,27 @@ var wordArray = [
   { word: "css",
     category: "CSS",
     hint: "lay these sheets on top of each other" },
+  { word: "pseudocode",
+    category: "js",
+    hint: "the type of code that you write to plan to write code" },
+  { word: "variable",
+    category: "CSS",
+    hint: "this stores things" },
+  { word: "loop",
+    category: "CSS",
+    hint: "iterates through a list" },
+  { word: "callback",
+    category: "js",
+    hint: "this will call a function, maybe" },
+  { word: "comment",
+    category: "js",
+    hint: "these are notes for yourself or those that come after you" },
+  { word: "git",
+    category: "terminal",
+    hint: "local version control" },
+  { word: "github",
+    category: "",
+    hint: "collaborative version control" },
   { word: "conditional",
     category: "html",
     hint: "if it's not this, then it's that" }];
@@ -24,6 +45,7 @@ var wrongGuessesCount = 0;
 var correctGuesses = [];
 var userScore = 0;
 var userGuesses = [];
+var guessesLeft = 8;
 
 // clear contents of an html element
 function clearIt (element) {
@@ -41,6 +63,7 @@ function newGame () {
   currentWord = newWord;
   currentHint = newHint;
   correctGuesses = currentWord.split('');
+  document.getElementById("guesses-left").innerHTML = guessesLeft;
 
   // try to foreach this
   for (var i = 0; i < correctGuesses.length; i++) {
@@ -88,14 +111,25 @@ function makeGuess (char) {
       wrongGuessesCount++;
       wrongGuesses.push(char);
       document.getElementById('wrong-guesses').innerHTML += char + " ";
+      if (wrongGuessesCount > 8) {
+        alert("better luck next time!");
+        newGame();
+        userGuesses = [];
+        wrongGuesses = [];
+        wrongGuessesCount = 0;
+        guessesLeft--;
+        document.getElementById('wrong-guesses').innerHTML = " ";
+
+      }
   }
   // insert into document
   if (letterInWord === true) {
+    userGuesses.push(char);
     for (var i = 0; i < correctGuesses.length; i++) {
       if (char === correctGuesses[i]) {
-        if (userGuesses.indexOf(char) === -1) {
-          userGuesses.push(char);
-        }
+        // if (userGuesses.indexOf(char) === -1) {
+        //   userGuesses.push(char);
+        // }
         // for (var z = 0; z < userGuesses.length; z++) {
         //   if (char !== userGuesses[z]) {
         //     userGuesses.push(char);
@@ -109,14 +143,22 @@ function makeGuess (char) {
       }
     }
   }
+  checkScore();
+}
 
+
+//check the score
+function checkScore () {
   if (userGuesses.length === correctGuesses.length){
-    alert("winner!");
+    // debugger;
     userScore++;
-    newGame();
     userGuesses = [];
     wrongGuesses = [];
     wrongGuessesCount = 0;
+    document.getElementById('user-wins').innerHTML = userScore;
+    document.getElementById('wrong-guesses').innerHTML = " ";
+    alert("winner! the word was " + currentWord + ".");
+    setTimeout(newGame, 500);
   }
 }
 // press any key to get started on the page

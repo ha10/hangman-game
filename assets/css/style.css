@@ -3,25 +3,66 @@
 *::after {
   box-sizing: border-box;
 }
-html {
-  font-family: sans-serif;
+body {
+  /*font-family: 'Share Tech Mono', monospace;
+  background-color: #1B1C1D;
+  background-image: url("../../assets/img/codecodecode.png");
+  color: white;*/
+
+}
+
+#logo {
+  width: 5%;
+  position: absolute;
+  top: 0;
+  left: 20%;
 }
 
 .container {
-  width: 860px;
+  width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
-#current-hint,
-#wrong-guesses {
-  font-size: 1em;
-  margin-top: 1em;
-  font-weight: 200;
+.heading {
+  text-align: center;
+}
+/*#guesses-left,
+#wrong-guesses,
+#wins {
+  height: 100%;
+}
+.keeping-score {
+  height: 200px;
+}*/
+
+
+/*#current-hint,*/
+.current-hint {
+    margin: 2em 0 2em 0;
+}
+
+.score-boxes {
+  height: 100px;
+  margin-right: 0px;
+  border: 1px solid darkgrey;
+
 }
 
 #current-word {
-  font-size: 1.3em;
+  font-size: 2.5em;
+}
+
+.keeping-score {
+  width: 100%;
+}
+.one-third {
+  width: 30%;
+  float: left;
+}
+
+p {
+  font-size: 1.2em;
 }
 
 @media screen and (max-width:768px) {

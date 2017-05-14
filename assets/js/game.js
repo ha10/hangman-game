@@ -34,7 +34,19 @@ var wordArray = [
     hint: "collaborative version control" },
   { word: "conditional",
     category: "js",
-    hint: "if it's not this, then it's that" }];
+    hint: "if it's not this, then it's that" },
+  { word: "parameter",
+    category: "js",
+    hint: "functions are passed these"},
+  { word: "boolean",
+    category: "js",
+    hint: "a strange way to find a true or false value"},
+  { word: "object",
+    category: "js",
+    hint: "a collection of properties consisting of a key and a value"},
+  { word: "array",
+    category: "js",
+    hint: "a list of things"}];
 
 // the showmakers
 var userGuess; // the key event

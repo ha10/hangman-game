@@ -33,19 +33,21 @@ var wordArray = [
     category: "",
     hint: "collaborative version control" },
   { word: "conditional",
-    category: "html",
+    category: "js",
     hint: "if it's not this, then it's that" }];
 
-var userGuess;
-var currentWord;
-var currentHint;
-var correctGuesses;
-var wrongGuesses = [];
-var wrongGuessesCount = 0;
-var correctGuesses = [];
-var userScore = 0;
-var userGuesses = [];
-var guessesLeft = 8;
+// the showmakers
+var userGuess; // the key event
+var currentWord; // current word from wordArray
+var currentHint; // current hint from wordArray
+var wrongGuesses = []; // the user's incorrect guesses
+var wrongGuessesCount = 0; // number of incorrect guesses so far
+var correctGuesses = []; // array of right guesses
+var correctGuessCount = 0; // correct number of guesses
+var userScore = 0; // default user score
+var userGuesses = []; // empty array of guesses to be populated
+var guessesLeft = 8; // number of guesses user has to start
+var randNum; // the index of the current word to splice out
 
 // clear contents of an html element
 function clearIt (element) {
@@ -54,25 +56,26 @@ function clearIt (element) {
 
 // create new game
 function newGame () {
-  var randNum = Math.floor(Math.random() * wordArray.length);
+  randNum = Math.floor(Math.random() * wordArray.length);
   var newWord = wordArray[randNum].word;
   var newHint = wordArray[randNum].hint;
-  // clear current word
-  clearIt("#current-word");
+  wordArray.splice(randNum, 1); // no repeat words
+  clearIt("#current-word"); // clear current word
   // push values global
   currentWord = newWord;
   currentHint = newHint;
   correctGuesses = currentWord.split('');
   document.getElementById("guesses-left").innerHTML = guessesLeft;
 
-  // try to foreach this
-  for (var i = 0; i < correctGuesses.length; i++) {
-    document.querySelector("#current-word").innerHTML +=("<span class=\"" + correctGuesses[i] + "\"> _ </span>");
-    // "<span id="correctGuesses[i]"> _ </span>"
-    // <span id="correctGuesses[i]"> _ </span>
-    // " _ ".repeat(newWord.length);
-  }
+  // create blanks with matching classes
+  correctGuesses.forEach(function (value, i){
+    document.querySelector("#current-word").innerHTML +=("<span class=\"" + value + "\"> _ </span>");
+  });
+
   document.querySelector("#current-hint").innerHTML = newHint;
+  if (wordArray.length === 0) {
+    alert("congrats! that's all the words we have for you right now. refresh to play again!")
+  }
 }
 
 // get keypress value and store it in a variable
@@ -82,20 +85,17 @@ document.onkeyup = function (event) {
     console.log(userGuess);
     makeGuess(userGuess);
   } else if (event.keyCode === 32) {
-    // figure out the space here
-  //   for (var i = 0; i < currentWord.length; i++) {
-  //     if (currentWord[i] === " ") {
-  //       document.getElementsByClassName(" ").innerHTML = "test";
-  //   }
-  // }
-
-}
+  }
 }
 
 // var computerGuess = options[Math.floor(Math.random() * options.length)];
 function makeGuess (char) {
+  if (userGuesses.indexOf(char) !== -1) {
+    return;
+  }
   var letterInWord = false;
   // Check if a letter exists inside the array
+
   for (var i = 0; i < correctGuesses.length; i++) {
     if (char.toLowerCase() === correctGuesses[i].toLowerCase()) {
       letterInWord = true;
@@ -106,37 +106,37 @@ function makeGuess (char) {
       console.log(letterInWord);
     }
   }
+
   // increase wrongGuessesCount if letter is not in word
   if (letterInWord === false) {
-      wrongGuessesCount++;
-      wrongGuesses.push(char);
-      document.getElementById('wrong-guesses').innerHTML += char + " ";
-      guessesLeft--;
-      document.getElementById('guesses-left').innerHTML = guessesLeft;
-      if (wrongGuessesCount > 8) {
+      if (wrongGuesses.indexOf(char) === -1) {
+        wrongGuesses.push(char);
+        wrongGuessesCount++;
+        document.getElementById('wrong-guesses').innerHTML += char + " ";
+        guessesLeft--;
+        document.getElementById('guesses-left').innerHTML = guessesLeft;
+      }
+
+      if (wrongGuessesCount >= 8) {
         alert("better luck next time!");
         userGuesses = [];
         wrongGuesses = [];
         wrongGuessesCount = 0;
+        correctGuessCount = 0;
         guessesLeft = 8;
         document.getElementById('wrong-guesses').innerHTML = " ";
         document.getElementById('guesses-left').innerHTML = 8;
         newGame();
       }
   }
-  // insert into document
+
+  // insert into document if correct
   if (letterInWord === true) {
     userGuesses.push(char);
     for (var i = 0; i < correctGuesses.length; i++) {
+
       if (char === correctGuesses[i]) {
-        // if (userGuesses.indexOf(char) === -1) {
-        //   userGuesses.push(char);
-        // }
-        // for (var z = 0; z < userGuesses.length; z++) {
-        //   if (char !== userGuesses[z]) {
-        //     userGuesses.push(char);
-        //   }
-        // }
+        correctGuessCount++;
         var matches = document.querySelectorAll("." + char);
         for (var y = 0; y < matches.length; y++){
           matches[y].innerHTML = char;
@@ -148,16 +148,15 @@ function makeGuess (char) {
   checkScore();
 }
 
-
 //check the score
 function checkScore () {
-  if (userGuesses.length === correctGuesses.length){
-    // debugger;
+  if (correctGuessCount === correctGuesses.length){
     userScore++;
     userGuesses = [];
     wrongGuesses = [];
     wrongGuessesCount = 0;
     guessesLeft = 8;
+    correctGuessCount = 0;
     document.getElementById('user-wins').innerHTML = userScore;
     document.getElementById('wrong-guesses').innerHTML = " ";
     document.getElementById('guesses-left').innerHTML = "8";
@@ -165,18 +164,5 @@ function checkScore () {
     setTimeout(newGame, 500);
   }
 }
-// press any key to get started on the page
 
-// keep track of wins (times user guessed correctly)
-
-// keep track of incorrect guesses
-
-// the correct letters populate with each guess
-
-// show # of guesses remaining
-
-// play another word when complete
-
-
-// have a word to start with
 newGame();

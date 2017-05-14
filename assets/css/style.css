@@ -18,118 +18,202 @@ body {
     background-attachment: fixed;
 }
 
-#logo {
-  width: 5%;
-  position: absolute;
-  top: 0;
-  left: 20%;
-}
-
-.container {
-  width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.heading {
-  text-align: center;
-  margin-top: 5em;
-  font-weight: 400;
-  font-size: 1.2em;
-}
-
-.heading h1 {
-  font-weight: 400;
-  font-size: 2.3em;
-  margin-bottom: 1em;
-}
-#guesses-left,
-#wrong-guesses,
-#user-wins {
-  padding-top: 20px;
-}
-/*.keeping-score {
-  height: 200px;
-}*/
-
-
-/*#current-hint,*/
-.current-hint,
-#current-hint {
-    margin: 2em 0 2em 0;
-    font-weight: 100;
-}
-
-.score-boxes {
-  height: 100px;
-  margin-right: 0px;
-  border: 1px solid darkgrey;
-  background: #4E534B;
-
-}
-
-#current-word {
-  font-size: 2.9em;
-  margin: 1em 0;
-}
-
-.keeping-score {
-  width: 100%;
-}
-.one-third {
-  width: 20%;
-  float: left;
-  margin-left: 10%;
-}
-
-p {
-  font-size: 1.2em;
-}
-
-.score-boxes > h4 {
-  background: #D3D5D2;
-  height: 30px;
-  position: relative;
-  top: 0;
-  margin: 0;
-  padding: 5px 0;
-  color: #4E534B;
-  font-weight: 200;
-}
-
-@media screen and (max-width:320px) {
+@media screen and (min-width:900px) {
   .container {
-    width: 300px;
-    margin: auto 0;
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
   }
+
+  .heading {
+    text-align: center;
+    margin-top: 5em;
+    font-weight: 400;
+    font-size: 1.2em;
+  }
+
+  .heading h1 {
+    font-weight: 400;
+    font-size: 2.3em;
+    margin-bottom: 1em;
+  }
+
+  .current-hint,
+  #current-hint {
+      margin: 2em 0 2em 0;
+      font-weight: 100;
+  }
+  .keeping-score {
+    width: 100%;
+    margin-top: 3em;
+  }
+
+  .score-boxes {
+    height: 100px;
+    margin-right: 10px;
+    border: 1px solid darkgrey;
+    background: #4E534B;
+    width: 200px;
+    float: left;
+    margin: 0 2.6em 0 2.6em;
+  }
+
+  #current-word {
+    font-size: 2.9em;
+    margin: 1em 0;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
   .score-boxes > h4 {
     background: #D3D5D2;
-    /*height: 30px;*/
-    /*position: relative;*/
+    height: 30px;
+    position: relative;
     top: 0;
     margin: 0;
-    /*padding: 5px 0;*/
+    padding: 5px 0;
     color: #4E534B;
     font-weight: 200;
   }
-  .one-third {
+  #keyboard {
+    display: block;
+    display: none;
+  }
+}
+
+@media screen and (max-width: 899px) and (min-width: 461px) {
+  .container {
     width: 100%;
-    position: relative;
-    float: left;
-    clear: both;
-    margin-left: 10%;
-  }
-  #current-word,
-  #current-hint {
-    text-align: center;
     margin: 0 auto;
-    padding: 0;
+    text-align: center;
   }
+
   .heading {
-    margin: 0;
-    /*padding: 0;*/
+    text-align: center;
+    margin-top: 2em;
+    font-weight: 400;
+    font-size: 1.2em;
   }
+
+  .heading h1 {
+    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  .current-hint,
+  #current-hint {
+      margin: 2em 0 2em 0;
+      font-weight: 100;
+  }
+  .keeping-score {
+    width: 100%;
+    margin-top: 3em;
+  }
+
+  .score-boxes {
+    height: 100px;
+    margin-right: 10px;
+    border: 1px solid darkgrey;
+    background: #4E534B;
+    width: 200px;
+    clear: both;
+    margin: 0 auto;
+    margin-bottom: 1em;
+  }
+
+  #current-word {
+    font-size: 2.9em;
+    margin: .5em 0;
+  }
+
   p {
-    font-size: .9em;
+    font-size: 1em;
+    line-height: .6em;
+  }
+
+  .score-boxes > h4 {
+    background: #D3D5D2;
+    height: 30px;
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 5px 0;
+    color: #4E534B;
+    font-weight: 200;
+  }
+  #keyboard {
+    display: none;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .heading {
+    text-align: center;
+    margin-top: 2em;
+    font-weight: 400;
+    font-size: 1.2em;
+  }
+
+  .heading h1 {
+    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  .current-hint,
+  #current-hint {
+      margin: 2em 0 2em 0;
+      font-weight: 100;
+  }
+  .keeping-score {
+    width: 100%;
+    margin-top: 3em;
+  }
+
+  .score-boxes {
+    height: 100px;
+    margin-right: 10px;
+    border: 1px solid darkgrey;
+    background: #4E534B;
+    width: 200px;
+    clear: both;
+    margin: 0 auto;
+    margin-bottom: 1em;
+  }
+
+  #current-word {
+    font-size: 2.9em;
+    margin: .5em 0;
+  }
+
+  p {
+    font-size: .8em;
+    line-height: .6em;
+  }
+
+  .score-boxes > h4 {
+    background: #D3D5D2;
+    height: 30px;
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 5px 0;
+    color: #4E534B;
+    font-weight: 200;
+  }
+  #keyboard {
+    text-align: center;
+  }
+  input {
+    margin-bottom: 1em;
   }
 }
